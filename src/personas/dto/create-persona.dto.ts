@@ -1,40 +1,33 @@
-import {
-  IsNotEmpty,
-  IsString,
-} from 'class-validator';
+import { IsDateString, IsNotEmpty, IsString } from 'class-validator';
 
 export class CreatePersonaDto {
   @IsString()
   @IsNotEmpty()
-  id: string
+  tipo_identificacion: string;
 
   @IsString()
   @IsNotEmpty()
-  tipo_identificacion: string
+  numero_identificacion: string;
 
   @IsString()
   @IsNotEmpty()
-  numero_identificacion: string
+  nombre1: string;
+
+  @IsString()
+  nombre2: string;
 
   @IsString()
   @IsNotEmpty()
-  nombre1: string
+  apellido1: string;
 
   @IsString()
-  nombre2: string
-
-  @IsString()
-  @IsNotEmpty()
-  apellido1: string
-
-  @IsString()
-  apellido2: string
+  apellido2: string;
 
   @IsString()
   @IsNotEmpty()
-  sexo: string
+  sexo: string;
 
-  @IsString()
+  @IsDateString()
   @IsNotEmpty()
-  fecha_nacimiento: string
+  fecha_nacimiento: string;
 }
