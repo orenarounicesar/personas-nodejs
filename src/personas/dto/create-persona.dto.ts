@@ -1,39 +1,40 @@
 import {
-  IsEnum,
   IsNotEmpty,
-  IsOptional,
   IsString,
-  IsDateString,
 } from 'class-validator';
 
-import { Sexo, TipoIdentificacion } from '@prisma/client';
-
 export class CreatePersonaDto {
-  @IsEnum(TipoIdentificacion)
+  @IsString()
   @IsNotEmpty()
-  TipoIdentificacion: TipoIdentificacion;
+  id: string
 
   @IsString()
   @IsNotEmpty()
-  Primer_nombre: string;
-
-  @IsString()
-  @IsOptional()
-  Segundo_nombre?: string;
+  tipo_identificacion: string
 
   @IsString()
   @IsNotEmpty()
-  Primer_apellido: string;
+  numero_identificacion: string
 
   @IsString()
-  @IsOptional()
-  Segundo_apellido?: string;
-
-  @IsEnum(Sexo)
   @IsNotEmpty()
-  Sexo: Sexo;
+  nombre1: string
 
-  @IsDateString()
+  @IsString()
+  nombre2: string
+
+  @IsString()
   @IsNotEmpty()
-  Fecha_nacimiento: string;
+  apellido1: string
+
+  @IsString()
+  apellido2: string
+
+  @IsString()
+  @IsNotEmpty()
+  sexo: string
+
+  @IsString()
+  @IsNotEmpty()
+  fecha_nacimiento: string
 }

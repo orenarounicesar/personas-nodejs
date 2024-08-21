@@ -11,7 +11,7 @@ export class PersonasService {
     return await this.prisma.persona.create({
       data: {
         ...createPersonaDto,
-        Fecha_nacimiento: new Date(createPersonaDto.Fecha_nacimiento),
+        fecha_nacimiento: new Date(createPersonaDto.fecha_nacimiento),
       },
     });
   }
@@ -37,7 +37,7 @@ export class PersonasService {
       where: { Id: id },
       data: {
         ...updatePersonaDto,
-        Fecha_nacimiento: new Date(updatePersonaDto.Fecha_nacimiento),
+        fecha_nacimiento: new Date(updatePersonaDto.fecha_nacimiento),
       },
     });
     return updatedPersona;
