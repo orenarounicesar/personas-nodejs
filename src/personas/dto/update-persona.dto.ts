@@ -1,4 +1,4 @@
-import { IsDateString, IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty, IsString } from 'class-validator';
 
 export class UpdatePersonaDto {
   @IsString()
@@ -27,7 +27,6 @@ export class UpdatePersonaDto {
   @IsNotEmpty()
   sexo: string;
 
-  @IsDateString()
   @IsNotEmpty()
   fecha_nacimiento: string;
 }

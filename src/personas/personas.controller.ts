@@ -6,7 +6,7 @@ import {
   Param,
   Delete,
   Put,
-  ParseUUIDPipe,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { PersonasService } from './personas.service';
 import { CreatePersonaDto } from './dto/create-persona.dto';
@@ -27,20 +27,20 @@ export class PersonasController {
   }
 
   @Get(':id')
-  findOne(@Param('id', new ParseUUIDPipe({ version: '4' })) id: string) {
+  findOne(@Param('id', ParseIntPipe) id: number) {
     return this.personasService.findOne(id);
   }
 
   @Put(':id')
   update(
-    @Param('id', new ParseUUIDPipe({ version: '4' })) id: string,
+    @Param('id', ParseIntPipe) id: number,
     @Body() updatePersonaDto: UpdatePersonaDto,
   ) {
     return this.personasService.update(id, updatePersonaDto);
   }
 
   @Delete(':id')
-  remove(@Param('id', new ParseUUIDPipe({ version: '4' })) id: string) {
+  remove(@Param('id', ParseIntPipe) id: number) {
     return this.personasService.remove(id);
   }
 }
