@@ -61,6 +61,18 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## Running app with docker
+
+### Environment variable
+
+```bash
+DATABASE_URL="postgresql://postgres:password@localhost:5432/devops?schema=public"
+```
+
+```bash
+$ docker run --name personas-nodejs --network network-devops -p 3000:3000 -e DATABASE_URL="postgresql://root:root@postgresql:5432/personas?schema=public" -d personas-nodejs
+```
+
 ## Running app with docker-compose
 
 ```bash
