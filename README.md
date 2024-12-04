@@ -64,13 +64,25 @@ $ npm run start:prod
 ## Running app with docker
 
 ### Environment variable
+The `DATABASE_URL` environment variable is used to define the connection details for the PostgreSQL database in this application. Below is a detailed breakdown of its structure.
 
 ```bash
-DATABASE_URL="postgresql://postgres:password@localhost:5432/devops?schema=public"
+DATABASE_URL="postgresql://<USERNAME>:<PASSWORD>@<HOST>:<PORT>/<DATABASE_NAME>?schema=<SCHEMA_NAME>"
 ```
 
 ```bash
-$ docker run --name personas-nodejs --network network-devops -p 3000:3000 -e DATABASE_URL="postgresql://root:root@postgresql:5432/personas?schema=public" -d personas-nodejs
+DATABASE_URL="postgresql://root:root@postgresql-db:5432/personas?schema=public"
+```
+
+### Build image
+
+```bash
+docker build -t personas-nodejs .
+```
+
+### Run container
+```bash
+$ docker run --name personas-nodejs --network network-name -p 3000:3000 -e DATABASE_URL="postgresql://root:root@postgresql-db:5432/personas?schema=public" -d personas-nodejs
 ```
 
 ## Running app with docker-compose
